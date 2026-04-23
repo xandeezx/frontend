@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f59e0b" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="icons/icon-192.png" />
+  <link rel="stylesheet" href="style.css" />
+  <title>App Bus</title>
+</head>
+<body>
+  <div class="container">
+
+    <header>
+      <h1>🚌 App Bus</h1>
+      <p>Cadastre linhas e paradas de ônibus</p>
+    </header>
+
+    <nav class="tabs">
+      <button class="tab-btn active" data-tab="linhas">🚍 Linhas</button>
+      <button class="tab-btn" data-tab="paradas">📍 Paradas</button>
+    </nav>
+
+    <!-- ===== ABA LINHAS ===== -->
+    <div id="section-linhas" class="section active">
+
+      <section class="card">
+        <h2 id="form-title">Nova linha</h2>
+
+        <form id="linha-form">
+          <input type="hidden" id="linha-id" />
+
+          <label for="numero">Número</label>
+          <input type="text" id="numero" placeholder="Ex: 710" required />
+
+          <label for="nome">Nome</label>
+          <input type="text" id="nome" placeholder="Ex: Centro / Boa Viagem" required />
+
+          <label for="origem">Origem</label>
+          <input type="text" id="origem" placeholder="Ex: Terminal Afogados" required />
+
+          <label for="destino">Destino</label>
+          <input type="text" id="destino" placeholder="Ex: Boa Viagem (Metrô)" required />
+
+          <div class="btn-row">
+            <button type="submit" class="btn-primary">Salvar</button>
+            <button type="button" id="cancel-edit" class="btn-secondary hidden">Cancelar edição</button>
+          </div>
+        </form>
+
+        <p id="message"></p>
+      </section>
+
+      <section class="card">
+        <div class="list-header">
+          <h2 style="margin:0">Linhas</h2>
+          <button id="reload-btn" class="btn-secondary">Atualizar</button>
+        </div>
+        <div id="linhas-list"></div>
+      </section>
+
+    </div>
+
+    <!-- ===== ABA PARADAS ===== -->
+    <div id="section-paradas" class="section">
+
+      <section class="card">
+        <h2 id="parada-form-title">Nova parada</h2>
+
+        <form id="parada-form">
+          <input type="hidden" id="parada-id" />
+
+          <label for="parada-nome">Nome</label>
+          <input type="text" id="parada-nome" placeholder="Ex: Av. Boa Viagem, 1200" required />
+
+          <label for="parada-endereco">Endereço</label>
+          <input type="text" id="parada-endereco" placeholder="Ex: Em frente ao Shopping" required />
+
+          <label for="parada-referencia">Ponto de referência (opcional)</label>
+          <input type="text" id="parada-referencia" placeholder="Ex: Próximo ao semáforo" />
+
+          <div class="btn-row">
+            <button type="submit" class="btn-primary">Salvar</button>
+            <button type="button" id="parada-cancel" class="btn-secondary hidden">Cancelar edição</button>
+          </div>
+        </form>
+
+        <p id="parada-message"></p>
+      </section>
+
+      <section class="card">
+        <div class="list-header">
+          <h2 style="margin:0">Paradas</h2>
+          <button id="parada-reload" class="btn-secondary">Atualizar</button>
+        </div>
+        <div id="paradas-list"></div>
+      </section>
+
+    </div>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
