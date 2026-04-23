@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:3000';
+const API_URL = 'https://backend-giof.onrender.com';
 
 // ===== ABAS =====
 document.querySelectorAll('.tab-btn').forEach((btn) => {
